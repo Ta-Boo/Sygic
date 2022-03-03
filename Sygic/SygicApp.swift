@@ -11,7 +11,7 @@ import SwiftUI
 struct SygicApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            UsersView()
         }
     }
 }

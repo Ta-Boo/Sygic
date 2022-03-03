@@ -8,12 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		B3F0F7EB27CE60BE0033AF13 /* SygicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F0F7EA27CE60BE0033AF13 /* SygicApp.swift */; };
-		B3F0F7ED27CE60BE0033AF13 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F0F7EC27CE60BE0033AF13 /* ContentView.swift */; };
+		B3F0F7ED27CE60BE0033AF13 /* RepositoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F0F7EC27CE60BE0033AF13 /* RepositoriesView.swift */; };
 		B3F0F7EF27CE60C10033AF13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3F0F7EE27CE60C10033AF13 /* Assets.xcassets */; };
 		B3F0F7F227CE60C10033AF13 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3F0F7F127CE60C10033AF13 /* Preview Assets.xcassets */; };
 		B3F0F7FC27CE60C10033AF13 /* SygicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F0F7FB27CE60C10033AF13 /* SygicTests.swift */; };
 		B3F0F80627CE60C10033AF13 /* SygicUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F0F80527CE60C10033AF13 /* SygicUITests.swift */; };
 		B3F0F80827CE60C10033AF13 /* SygicUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F0F80727CE60C10033AF13 /* SygicUITestsLaunchTests.swift */; };
+		B3F0F81627CE61280033AF13 /* RepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F0F81527CE61280033AF13 /* RepositoriesViewModel.swift */; };
+		B3F0F81827CE613B0033AF13 /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F0F81727CE613B0033AF13 /* RepositoryModel.swift */; };
+		B3F0F81B27CE62D20033AF13 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F0F81A27CE62D20033AF13 /* APIManager.swift */; };
+		B3F0F81F27CF923A0033AF13 /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F0F81E27CF923A0033AF13 /* RepositoryCell.swift */; };
+		B3F0F82127CF92580033AF13 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F0F82027CF92580033AF13 /* Extensions.swift */; };
+		B3F0F82327CF96AB0033AF13 /* RepositoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F0F82227CF96AB0033AF13 /* RepositoryDetailView.swift */; };
+		B3F0F82627CFA3480033AF13 /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F0F82527CFA3480033AF13 /* UsersView.swift */; };
+		B3F0F82827CFA3790033AF13 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F0F82727CFA3790033AF13 /* UsersViewModel.swift */; };
+		B3F0F82A27CFA3AD0033AF13 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F0F82927CFA3AD0033AF13 /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +45,7 @@
 /* Begin PBXFileReference section */
 		B3F0F7E727CE60BE0033AF13 /* Sygic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sygic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3F0F7EA27CE60BE0033AF13 /* SygicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SygicApp.swift; sourceTree = "<group>"; };
-		B3F0F7EC27CE60BE0033AF13 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B3F0F7EC27CE60BE0033AF13 /* RepositoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesView.swift; sourceTree = "<group>"; };
 		B3F0F7EE27CE60C10033AF13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3F0F7F127CE60C10033AF13 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B3F0F7F727CE60C10033AF13 /* SygicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SygicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +53,15 @@
 		B3F0F80127CE60C10033AF13 /* SygicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SygicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3F0F80527CE60C10033AF13 /* SygicUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SygicUITests.swift; sourceTree = "<group>"; };
 		B3F0F80727CE60C10033AF13 /* SygicUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SygicUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B3F0F81527CE61280033AF13 /* RepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModel.swift; sourceTree = "<group>"; };
+		B3F0F81727CE613B0033AF13 /* RepositoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
+		B3F0F81A27CE62D20033AF13 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		B3F0F81E27CF923A0033AF13 /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
+		B3F0F82027CF92580033AF13 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B3F0F82227CF96AB0033AF13 /* RepositoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailView.swift; sourceTree = "<group>"; };
+		B3F0F82527CFA3480033AF13 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
+		B3F0F82727CFA3790033AF13 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
+		B3F0F82927CFA3AD0033AF13 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +112,13 @@
 		B3F0F7E927CE60BE0033AF13 /* Sygic */ = {
 			isa = PBXGroup;
 			children = (
+				B3F0F82427CFA3180033AF13 /* Users */,
+				B3F0F81927CE62BF0033AF13 /* API */,
+				B3F0F81427CE60DE0033AF13 /* Repositories */,
 				B3F0F7EA27CE60BE0033AF13 /* SygicApp.swift */,
-				B3F0F7EC27CE60BE0033AF13 /* ContentView.swift */,
 				B3F0F7EE27CE60C10033AF13 /* Assets.xcassets */,
 				B3F0F7F027CE60C10033AF13 /* Preview Content */,
+				B3F0F82027CF92580033AF13 /* Extensions.swift */,
 			);
 			path = Sygic;
 			sourceTree = "<group>";
@@ -125,6 +146,36 @@
 				B3F0F80727CE60C10033AF13 /* SygicUITestsLaunchTests.swift */,
 			);
 			path = SygicUITests;
+			sourceTree = "<group>";
+		};
+		B3F0F81427CE60DE0033AF13 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				B3F0F7EC27CE60BE0033AF13 /* RepositoriesView.swift */,
+				B3F0F81527CE61280033AF13 /* RepositoriesViewModel.swift */,
+				B3F0F81727CE613B0033AF13 /* RepositoryModel.swift */,
+				B3F0F81E27CF923A0033AF13 /* RepositoryCell.swift */,
+				B3F0F82227CF96AB0033AF13 /* RepositoryDetailView.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		B3F0F81927CE62BF0033AF13 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B3F0F81A27CE62D20033AF13 /* APIManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		B3F0F82427CFA3180033AF13 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				B3F0F82527CFA3480033AF13 /* UsersView.swift */,
+				B3F0F82727CFA3790033AF13 /* UsersViewModel.swift */,
+				B3F0F82927CFA3AD0033AF13 /* UserModel.swift */,
+			);
+			path = Users;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +308,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3F0F7ED27CE60BE0033AF13 /* ContentView.swift in Sources */,
+				B3F0F7ED27CE60BE0033AF13 /* RepositoriesView.swift in Sources */,
+				B3F0F81827CE613B0033AF13 /* RepositoryModel.swift in Sources */,
+				B3F0F81B27CE62D20033AF13 /* APIManager.swift in Sources */,
+				B3F0F82327CF96AB0033AF13 /* RepositoryDetailView.swift in Sources */,
+				B3F0F81F27CF923A0033AF13 /* RepositoryCell.swift in Sources */,
+				B3F0F82627CFA3480033AF13 /* UsersView.swift in Sources */,
+				B3F0F81627CE61280033AF13 /* RepositoriesViewModel.swift in Sources */,
 				B3F0F7EB27CE60BE0033AF13 /* SygicApp.swift in Sources */,
+				B3F0F82127CF92580033AF13 /* Extensions.swift in Sources */,
+				B3F0F82827CFA3790033AF13 /* UsersViewModel.swift in Sources */,
+				B3F0F82A27CFA3AD0033AF13 /* UserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
