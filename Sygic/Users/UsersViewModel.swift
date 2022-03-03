@@ -15,30 +15,39 @@ class UsersViewModel: ObservableObject {
     @Published var querry = ""
     @Published var isLoading = false
     private var cancellables: Set<AnyCancellable> = []
+    let subject = PassthroughSubject<Int, Never>()
+
 
 
     
-    func fetchUsers() {
-        isLoading = true
-        APIManager.fetchData(from: Routing.usersQuerry,
-                             parameters: [
-                                URLQueryItem(name: "q", value: querry),
-                                URLQueryItem(name: "page", value: "\(apiPage)"),
-                             ]) { [weak self] (result: Result<UsersModel, Error>)  in
-            guard let self = self else { return }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
-                self.isLoading = false
+    func fetchUsers(append: Bool = false) {
+        APIManager.getRequest(type: UsersModel.self,
+                                     url: Routing.usersQuerry,
+                                     parameters: [
+                                        URLQueryItem(name: "q", value: querry),
+                                        URLQueryItem(name: "page", value: "\(apiPage)"),
+                                       ])
+            .sink(
+                receiveCompletion: { result in
                 switch result {
-                case .success(let users):
-                    guard let items = users.items else { return }
+                case let .failure(error):
+                    print("Couldn't get users: \(error)")
+                case .finished:
+                    break
+                }
+            }, receiveValue: { users in
+                guard let items = users.items else { return }
+                if append {
+                    self.users.append(contentsOf: items)
+                } else {
                     self.users = items
-                    self.apiPage = 1
-                case .failure(let failure):
-                    print(failure)
                 }
             }
-        }
+            )
+            .store(in: &cancellables)
     }
+    
+
     
     init() {
         bind()
@@ -49,10 +58,16 @@ class UsersViewModel: ObservableObject {
             .debounce(for: .milliseconds(500), scheduler: RunLoop.main)
             .sink(receiveValue:  { [weak self] value in
             if (value != "" && value == self?.querry) {
+                self?.apiPage = 1
                 self?.fetchUsers()
             }
         })
             .store(in: &cancellables)
+    }
+    
+    func loadMoreUsers() {
+        apiPage += 1
+        fetchUsers(append: true)
     }
     
     deinit {

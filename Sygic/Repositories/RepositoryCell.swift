@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 
 struct ColorPair{
@@ -23,7 +24,7 @@ struct RepositoryCell: View {
     ]
     var body: some View {
         let size = geometry.size.width * 0.95
-        let colorPair = colorPairs[(data.stars ?? 0)/2 % colorPairs.count]
+        let colorPair = colorPairs[(data.stars ?? 0) % colorPairs.count]
         VStack{
             HStack{
                 VStack {
@@ -41,7 +42,7 @@ struct RepositoryCell: View {
                                         image.resizable()
                                             .frame(width: size*0.3, height: size*0.3)
                                             .aspectRatio(contentMode: .fit)
-                                            .cornerRadius(5)
+                                            .clipShape(Circle())
                                             .background(.clear)
                                     },
                                     placeholder: {
@@ -49,6 +50,17 @@ struct RepositoryCell: View {
                                             .frame(width: size*0.3, height: size*0.3)
                                     }
                                 )
+                    
+//                    AsyncImageView(
+//                        url: data.owner.avatarURL,
+//                        placeholder: {
+//                          ProgressView().frame(width: size*0.3, height: size*0.3)
+//                        },
+//                        image: {
+//                          $0.resizable().frame(width: size*0.3, height: size*0.3).aspectRatio(contentMode: .fit).clipShape(Circle())
+//                        }
+//                      )
+//                    )
                     HStack{
                         Image(systemName: "star.fill").foregroundColor(.white).padding(.vertical, 5)
                         Text("\(data.stars ?? 0)").font(.headline).foregroundColor(.white)
@@ -59,10 +71,13 @@ struct RepositoryCell: View {
             Text(data.description ?? "Description is missing")
                 .font(.body)
                 .foregroundColor(.white)
+                .lineLimit(2)
             Spacer()
         }
         .frame(width: size, height: size*0.75)
         .background(LinearGradient(gradient: Gradient(colors: [colorPair.start, colorPair.end]), startPoint: .top, endPoint: .bottom))
         .cornerRadius(10)
     }
+
+  
 }

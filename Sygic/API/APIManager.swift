@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Combine
+import SwiftUI
 
 struct Routing {
     private static let baseURL = "api.github.com/"
@@ -54,5 +56,40 @@ class APIManager {
             }
             
         }.resume()
+    }
+    //can be static,
+    static func getRequest<T: Decodable>(
+        type: T.Type,
+        url: String,
+        parameters: [URLQueryItem]
+    ) -> AnyPublisher<T, Error> {
+            
+            var components = URLComponents()
+            components.scheme = "https"
+            components.path = url
+            components.queryItems = parameters
+            guard let url = components.url else {
+                preconditionFailure("Invalid URL")
+            }
+
+            return URLSession.shared.dataTaskPublisher(for: URLRequest(url: url))
+                .map(\.data)
+                .decode(type: T.self, decoder: JSONDecoder())
+                .receive(on: RunLoop.main)
+                .eraseToAnyPublisher()
+
+                
+        }
+    
+    static func downloadImage(url: String)  -> AnyPublisher<Data, URLSession.DataTaskPublisher.Failure>{
+        
+        guard let url = URL(string: url) else {
+            preconditionFailure("Invalid URL")
+        }
+
+        return URLSession.shared.dataTaskPublisher(for: URLRequest(url: url))
+            .map(\.data)
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
     }
 }

@@ -23,6 +23,8 @@
 		B3F0F82627CFA3480033AF13 /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F0F82527CFA3480033AF13 /* UsersView.swift */; };
 		B3F0F82827CFA3790033AF13 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F0F82727CFA3790033AF13 /* UsersViewModel.swift */; };
 		B3F0F82A27CFA3AD0033AF13 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F0F82927CFA3AD0033AF13 /* UserModel.swift */; };
+		B3F0F82D27D0D6C60033AF13 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = B3F0F82C27D0D6C60033AF13 /* Swinject */; };
+		B3F0F83227D0F58F0033AF13 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F0F83127D0F58F0033AF13 /* AsyncImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,7 @@
 		B3F0F82527CFA3480033AF13 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
 		B3F0F82727CFA3790033AF13 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		B3F0F82927CFA3AD0033AF13 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		B3F0F83127D0F58F0033AF13 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3F0F82D27D0D6C60033AF13 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +116,7 @@
 		B3F0F7E927CE60BE0033AF13 /* Sygic */ = {
 			isa = PBXGroup;
 			children = (
+				B3F0F83027D0F5790033AF13 /* Helpers */,
 				B3F0F82427CFA3180033AF13 /* Users */,
 				B3F0F81927CE62BF0033AF13 /* API */,
 				B3F0F81427CE60DE0033AF13 /* Repositories */,
@@ -178,6 +183,14 @@
 			path = Users;
 			sourceTree = "<group>";
 		};
+		B3F0F83027D0F5790033AF13 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B3F0F83127D0F58F0033AF13 /* AsyncImageView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -194,6 +207,9 @@
 			dependencies = (
 			);
 			name = Sygic;
+			packageProductDependencies = (
+				B3F0F82C27D0D6C60033AF13 /* Swinject */,
+			);
 			productName = Sygic;
 			productReference = B3F0F7E727CE60BE0033AF13 /* Sygic.app */;
 			productType = "com.apple.product-type.application";
@@ -266,6 +282,9 @@
 				Base,
 			);
 			mainGroup = B3F0F7DE27CE60BE0033AF13;
+			packageReferences = (
+				B3F0F82B27D0D6C60033AF13 /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			productRefGroup = B3F0F7E827CE60BE0033AF13 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -319,6 +338,7 @@
 				B3F0F82127CF92580033AF13 /* Extensions.swift in Sources */,
 				B3F0F82827CFA3790033AF13 /* UsersViewModel.swift in Sources */,
 				B3F0F82A27CFA3AD0033AF13 /* UserModel.swift in Sources */,
+				B3F0F83227D0F58F0033AF13 /* AsyncImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,6 +665,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B3F0F82B27D0D6C60033AF13 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B3F0F82C27D0D6C60033AF13 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3F0F82B27D0D6C60033AF13 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B3F0F7DF27CE60BE0033AF13 /* Project object */;
 }

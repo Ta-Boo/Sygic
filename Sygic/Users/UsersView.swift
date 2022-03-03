@@ -14,26 +14,30 @@ struct UsersView: View {
                 //            LazyVGrid(
                 //                columns: [GridItem(.flexible())]) {
                 ScrollView {
-                    TextField("Search", text: $viewModel.querry)
+                    TextField("Type to search...", text: $viewModel.querry)
                         .padding(7)
                         .background(Color(.systemGray6))
                         .cornerRadius(8)
                         .padding()
                         .navigationTitle("Users").foregroundColor(.black)
-                    VStack {
+                    LazyVStack {
                         ForEach(viewModel.users, id: \.self) { user in
                             if let login = user.login {
                                 NavigationLink(login) {
                                     RepositoriesView(viewModel: RepositoriesViewModel(login: login))
                                 }
                                 .frame(height: 60, alignment: .leading)
+                                .onAppear{
+                                    if user == viewModel.users.last {
+                                        viewModel.loadMoreUsers()
+                                    }
+                                }
                                 
                             }
-                            let _ = print(user.login)
                         }
                     }
-//                    .background(.red)
                 }
+                .resignKeyboardOnDragGesture()
             
             
             
@@ -46,9 +50,12 @@ struct UsersView: View {
     //        viewModel.fetchUsers()
     //    }
 }
-
-struct UsersView_Previews: PreviewProvider {
-    static var previews: some View {
-        UsersView()
+struct ResignKeyboardOnDragGesture: ViewModifier {
+    var gesture = DragGesture().onChanged{_ in
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    func body(content: Content) -> some View {
+        content.gesture(gesture)
     }
 }
+
